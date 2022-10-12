@@ -10,8 +10,12 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *node = *list, *current;
-	listint_t *swap = node->next;
+	listint_t *swap;
 
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
+		return;
+	
+	swap = node->next;
 	while (swap)
 	{
 		current = swap->next;
