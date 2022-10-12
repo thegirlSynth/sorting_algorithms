@@ -17,7 +17,7 @@ void selection_sort(int *array, size_t size)
 		index = count + 1;
 		check = count;
 
-		/* Finding the minimum value in the array*/
+		/* Finding the next minimum value in the array*/
 		while (index < sz)
 		{
 			if (array[index] < array[check])
@@ -25,11 +25,14 @@ void selection_sort(int *array, size_t size)
 			index++;
 		}
 
-		/* Placing the minumum value */
-		swap = array[check];
-		array[check] = array[count];
-		array[count] = swap;
-		print_array(array, size);
+		/* Placing the next minumum value in its correct position*/
+		if (check != count)
+		{
+			swap = array[check];
+			array[check] = array[count];
+			array[count] = swap;
+			print_array(array, size);
+		}
 
 		count++;
 	}
